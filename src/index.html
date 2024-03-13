@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="./output.css" rel="stylesheet">
 </head>
-<body>
+<body class="bg-[url(down.jpg)] bg-cover bg-no-repeat">
   <nav class="bg-gray-800 p-4">
     <div class="max-w-7xl mx-auto flex justify-between items-center">
-        <!-- Logo -->
+            
         <div>
-            <a href="#" class="text-white text-lg font-semibold">Logo</a>
+            <a href="#" class="text-white text-lg font-semibold"><img class="h-10 w-14 rounded-lg" src="git.png" alt=""></a>
         </div>
         <!-- Navigation Links -->
         <div class="hidden md:block">
@@ -36,7 +36,7 @@
 <!-- Mobile Menu (Hidden by default) -->
 <div class="md:hidden hidden bg-gray-800 p-4">
     <ul class="flex flex-col space-y-4">
-        <li><a href="#" class="text-white hover:text-gray-300">Home</a></li>
+        <li><a href="#" class="text-white hover:text-gray-400 ">Home</a></li>
         <li><a href="#" class="text-white hover:text-gray-300">About</a></li>
         <li><a href="#" class="text-white hover:text-gray-300">Services</a></li>
         <li><a href="#" class="text-white hover:text-gray-300">Contact</a></li>
@@ -44,8 +44,59 @@
 </div>
 
 <!-- Example Content -->
-<div class="container mx-auto mt-8">
-    <p>Example content goes here.</p>
+<div class=" mx-auto mt-8 flex items-center justify-center">
+    <div class="w-80vw mx-auto bg-gray-400 rounded-xl overflow-hidden shadow-md">
+        <form id="userForm" onsubmit="handle(event)" class="p-6">
+            <div class="mb-4">
+                <label class="block text-gray-700 text-sm font-bold mb-2">GITHUB:</label>
+                <input id="user" type="text" class="border rounded-lg py-2 px-3 w-full focus:outline-none focus:ring focus:border-blue-300" placeholder="Enter github username">
+            </div>
+            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Search</button>
+        </form>
+
+      </div>
+   
+      <div class="flex items-center justify-around mt-3 md:flex-row flex-col p-8">
+        <img class="image h-64 w-64 mt-5 rounded-full shadow-2xl shadow-white hover:shadow-xl hover:shadow-red-600 duration-500" src="" alt="">
+        <ul class="text-left text-2xl p-6 flex flex-col space-y-4">
+          <li class="name text-3xl font-bold"> </li>
+          <li class="bio"> </li>
+          <li class="followers"> </li>
+          <li class="following"></li>
+        </ul>
+      </div>
+      
 </div>
 </body>
+<script>
+    function handle(event){
+        event.preventDefault();
+        const username = document.getElementById('user').value;
+        console.log(username);
+        if (username) {
+            fetch(`https://api.github.com/users/${username}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                 // Clear existing content
+                document.querySelector('.name').textContent = 'Name:';
+                document.querySelector('.bio').textContent = 'Bio:';
+                document.querySelector('.followers').textContent = 'Followers:';
+                document.querySelector('.following').textContent = 'Following: ';
+                document.querySelector('.image').src = '';
+
+                document.querySelector('.name').textContent += data.name;
+                document.querySelector('.bio').textContent += data.bio;
+                document.querySelector('.followers').textContent += data.followers;
+                document.querySelector('.following').textContent += data.following;
+                document.querySelector('.image').src = data.avatar_url;
+            })
+            .catch(error => console.error('Error fetching data:', error));
+        }
+    }
+       
+
+  
+ 
+</script>
 </html>
