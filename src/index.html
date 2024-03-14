@@ -63,6 +63,7 @@
           <li class="bio font-semibold"> </li>
           <li class="followers font-semibold "> </li>
           <li class="following font-semibold "></li>
+          <li class="printi font-bold"></li>
         </ul>
       </div>
       
@@ -84,12 +85,20 @@
                 document.querySelector('.followers').textContent = 'Followers:';
                 document.querySelector('.following').textContent = 'Following: ';
                 document.querySelector('.image').src = '';
+                document.querySelector('.printi').textContent = ' ';
 
-                document.querySelector('.name').textContent += data.name;
-                document.querySelector('.bio').textContent += data.bio;
-                document.querySelector('.followers').textContent += data.followers;
-                document.querySelector('.following').textContent += data.following;
-                document.querySelector('.image').src = data.avatar_url;
+                if(data.name!=undefined){
+
+                    document.querySelector('.name').textContent += data.name;
+                    document.querySelector('.bio').textContent += data.bio;
+                    document.querySelector('.followers').textContent += data.followers;
+                    document.querySelector('.following').textContent += data.following;
+                    document.querySelector('.image').src = data.avatar_url;
+                }
+                else if(data.name==undefined){
+                    document.querySelector('.printi').textContent += 'Username does not exist:';
+                }
+              
             })
             .catch(error => console.error('Error fetching data:', error));
         }
