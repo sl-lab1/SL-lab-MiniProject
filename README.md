@@ -1,7 +1,8 @@
 # SL-lab-MiniProject
 A24 A27 A25 A30
 
-Project name- Hello World
+# GitHub Profile Display
+
 
 Deployed Live LInk
 https://65f2f0fb79bf5dc96f47767d--wonderful-churros-eaff98.netlify.app/
@@ -27,7 +28,6 @@ Member 4:
 Name- Kamalnath Dhekwar 
 Roll number- 30
 
-# GitHub Profile Display
 
 ## 
 
