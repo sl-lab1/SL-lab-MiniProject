@@ -71,4 +71,5 @@ Contributions are welcome! If you would like to contribute to this project, plea
 + Make your changes and commit them:
 ```bash
 git commit -m "Description of your changes"
+git push 
 ```
