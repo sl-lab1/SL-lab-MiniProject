@@ -1,0 +1,44 @@
+body {
+  background-color: #212122;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  background-color: #414141; /* Page background color */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow for the container */
+}
+
+.team-members {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.card {
+  width: 200px;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  background-color: #fff; /* Card background color */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow for the cards */
+}
+
+.card img {
+  width: 100%;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.card h2 {
+  margin-bottom: 5px;
+}
+
+.card p {
+  margin-bottom: 5px;
+}
